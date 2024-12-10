@@ -1,117 +1,194 @@
-$primary-color: #004b8d;
-$secondary-color: #e60012;
+// Variáveis
+$primary-color: #0044cc;
+$secondary-color: #f4f4f4;
 $text-color: #333;
-$light-gray: #f0f0f0;
 
+// Estilos Globais
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  line-height: 1.6;
   color: $text-color;
 }
 
-.header {
-  background-color: $primary-color;
-  color: white;
-  padding: 1rem 0;
-
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    .nav a {
-      color: white;
-      margin-left: 1rem;
-      text-decoration: none;
-    }
-
-    .search input {
-      padding: 0.5rem;
-      border: none;
-      border-radius: 5px;
-    }
-  }
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.hero {
-  display: flex;
-  align-items: center;
-  background: $secondary-color;
-  color: white;
-  padding: 2rem;
+// Cabeçalho
+header {
+  background: $primary-color;
+  color: #fff;
+  padding: 10px 0;
 
-  .hero-text {
-    flex: 1;
-    h1 {
-      font-size: 2rem;
-      line-height: 1.5;
-    }
-  }
-
-  .hero-image img {
-    width: 300px;
+  .logo {
+    width: 10vh;
     height: auto;
-    border-radius: 5px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  h1 {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+
+    li a {
+      color: #fff;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
 
-.parte1 {
-  background: $light-gray;
-  text-align: center;
-  padding: 2rem;
+// Seção Inicial
+#home {
+  background: $secondary-color;
+  padding: 40px 0;
 
-  h2 {
-    margin-bottom: 1.5rem;
-  }
-
-  .parte2 {
+  .home-content {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
 
-    .reason {
-      flex: 1 1 200px;
-      margin: 1rem;
-      background: white;
-      border-radius: 5px;
-      padding: 1rem;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    .home-text {
+      flex: 1;
+      max-width: 50%;
+      h2 {
+        font-size: 2rem;
+        color: $primary-color;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 1rem;
+        color: $text-color;
+      }
+    }
+
+    .home-image {
+      flex: 1;
+      max-width: 50%;
+      text-align: center;
 
       img {
-        max-width: 50px;
-        margin-bottom: 1rem;
+        width: 100%;
+        height: auto;
+        max-width: 400px;
+        border-radius: 10px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .home-content {
+      flex-direction: column;
+
+      .home-text, .home-image {
+        max-width: 100%;
+        text-align: center;
+      }
+
+      .home-image img {
+        max-width: 300px;
+      }
+    }
+  }
+}
+
+
+// Seção de Doação
+#doacao {
+  background: $secondary-color;
+  padding: 20px 0;
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    input, button {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    button {
+      background: $primary-color;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        background: darken($primary-color, 10%);
+      }
+    }
+  }
+}
+
+// Livros Doados
+#livros-doados {
+  padding: 20px 0;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+
+    li {
+      text-align: center;
+      width: calc(33.333% - 10px);
+      background: $secondary-color;
+      border: 1px solid #ddd;
+      padding: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+      img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
       }
 
       p {
         font-size: 0.9rem;
+        font-weight: bold;
       }
     }
   }
 }
 
-.footer {
-  background: $primary-color;
-  color: white;
-  text-align: center;
-  padding: 1rem;
+// Quem Somos
+#quem-somos {
+  padding: 20px 0;
 
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-
-    .social-media a {
-      color: white;
-      margin: 0 0.5rem;
-      text-decoration: none;
-    }
+  .team-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    margin-bottom: 20px;
   }
+}
+
+// Rodapé
+footer {
+  background: $primary-color;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
 }
