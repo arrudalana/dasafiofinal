@@ -1,8 +1,7 @@
 import React from 'react';
-import Header from './components/Header/Header';
-import Section from './components/Section/Section';
-import Footer from './components/Footer/Footer';
-import './App.module.scss';
+import Header from './components/header/header'
+import Footer from './components/footer/footer';
+import './GlobalStyle/globalStyle.scss';
 
 function App() {
   return (
